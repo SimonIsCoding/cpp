@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:49:48 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/26 18:59:01 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:18:22 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	search_contact(int *nb_contact)
 		std::cout << " ___________________________________________" << std::endl;
 		std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 		std::cout << "|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|" << std::endl;
-		std::cout << "|         " << contact.index << "|" << "||" << std::endl;
+		std::cout << "|         " << Contact.get_contact_index() << "|" << "||" << std::endl;
 	}
 	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << std::endl;
 	return ;
@@ -101,6 +101,7 @@ int	main(void)
 {
 	char	input[32];
 	int		nb_contact;
+	Contact	contact;
 
 	nb_contact = 0;
 	std::cout << "Welcome to the PhoneBook!\n";
@@ -119,7 +120,7 @@ int	main(void)
 		else if (strcmp(input, "ADD") == 0)
 			add_contact(&nb_contact);
 		else
-			search_contact(&nb_contact);
+			search_contact(contact, &nb_contact);
 		std::cout << "Enter a command like ADD, SEARCH or EXIT: ";
 		std::cin >> input;
 	}
