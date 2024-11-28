@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:49:48 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/26 19:18:22 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:03:41 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,7 @@
 #include <string.h>
 #include <stdio.h>
 
-/*Contact::Contact(char first_name, char last_name, char nickname) : a1(p1), a2(p2), a3(p3)
-{
-	std::cout << "Constructor Called" << std::endl;
-	std::cout << "this->a1 = " << this->a1 << std::endl;
-	std::cout << "this->a2 = " << this->a2 << std::endl;
-	std::cout << "this->a3 = " << this->a3 << std::endl;
-}*/
-
-void	add_contact(int *nb_contact)
+void	add_contact(Contact &contact, int *nb_contact)
 {
 	printf("ADD written\n");
 
@@ -34,18 +26,30 @@ void	add_contact(int *nb_contact)
 	std::string	phone_number;
 	std::string	darkest_secret;
 
+	contact.set_index(++(*nb_contact));
 	std::cout << "Contact's first name: ";
 	std::cin >> first_name;
+	contact.set_first_name(first_name);
 	std::cout << "Contact's last name: ";
 	std::cin >> last_name;
+	contact.set_last_name(last_name);
 	std::cout << "Contact's nickname: ";
 	std::cin >> nickname;
+	contact.set_nickname(nickname);
 	std::cout << "Contact's phone_number: ";
 	std::cin >> phone_number;
+	contact.set_phone_number(phone_number);
 	std::cout << "Contact's darkest_secret: ";
 	std::cin >> darkest_secret;
-	Contact		contact(++(*(nb_contact)), first_name, last_name, nickname, phone_number, darkest_secret);
-	printf("index = %i\n", *(nb_contact));
+	contact.set_darkest_secret(darkest_secret);
+	std::cout << "index: " << contact.get_contact_index() << std::endl;
+	std::cout << "first_name: " << contact.get_first_name() << std::endl;
+	std::cout << "last_name: " << contact.get_last_name() << std::endl;
+	std::cout << "nickname: " << contact.get_nickname() << std::endl;
+	std::cout << "phone_number: " << contact.get_phone_number() << std::endl;
+	std::cout << "darkest_secret: " << contact.get_darkest_secret() << std::endl;
+
+	// printf("index = %i\n", *(nb_contact));
 	return ;
 }
 
@@ -76,32 +80,31 @@ void	complete_field(char	*str)
 	std::cout << '|';
 }
 
-void	search_contact(int *nb_contact)
+void	search_contact(Contact& contact, int *nb_contact)
 {
 	printf("SEARCH written\n");
-	if (*nb_contact == 0)
+	std::cout << " ___________________________________________" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|" << std::endl;
+	if (*nb_contact > 0)
 	{
-		std::cout << "No contact added yet" << std::endl;	
-		std::cout << " ___________________________________________" << std::endl;
-		std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-		std::cout << "|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|" << std::endl;
-	}
-	else
-	{
-		std::cout << " ___________________________________________" << std::endl;
-		std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-		std::cout << "|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|" << std::endl;
-		std::cout << "|         " << Contact.get_contact_index() << "|" << "||" << std::endl;
+		std::cout << "       " << contact.get_first_name() << std::endl;
 	}
 	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << std::endl;
+	printf("*nb_contact = %i\n", *nb_contact);
 	return ;
+}
+
+void	init_contact(Contact)
+{
+	
 }
 
 int	main(void)
 {
-	char	input[32];
-	int		nb_contact;
-	Contact	contact;
+	char		input[32];
+	int			nb_contact;
+	Contact		contact;
 
 	nb_contact = 0;
 	std::cout << "Welcome to the PhoneBook!\n";
@@ -118,7 +121,7 @@ int	main(void)
 		if (strcmp(input, "EXIT") == 0)
 			return (0);
 		else if (strcmp(input, "ADD") == 0)
-			add_contact(&nb_contact);
+			add_contact(contact, &nb_contact);
 		else
 			search_contact(contact, &nb_contact);
 		std::cout << "Enter a command like ADD, SEARCH or EXIT: ";
