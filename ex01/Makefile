@@ -6,12 +6,13 @@
 #    By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 13:05:02 by simarcha          #+#    #+#              #
-#    Updated: 2024/11/26 19:08:41 by simarcha         ###   ########.fr        #
+#    Updated: 2024/11/28 18:39:26 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
 NAME		= Phonebook
+CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 INCLUDES	= phonebook.class.hpp \
@@ -22,17 +23,16 @@ SRCS		= phonebook.class.cpp \
 			prompt.cpp \
 			main.cpp
 
+OBJS		= $(SRCS:.cpp=.o)
+
 #Rules
 all:		$(NAME)
 
-%.o:		
-			g++ $(CPPFLAGS) $(SRCS) -c $< -o $@
-
-$(NAME):	Makefile $(INCLUDES)
-			g++ $(CPPFLAGS) $(SRCS) -o $(NAME)
+$(NAME):	Makefile $(INCLUDES) $(OBJS)
+			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			rm -rf *.o
+			rm -rf $(OBJS)
 
 fclean:		clean
 			rm -rf $(NAME)
@@ -40,4 +40,3 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:	all fclean clean re
-			
