@@ -6,7 +6,7 @@
 /*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:14:20 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/25 16:55:45 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:47:33 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ class	Phonebook
 	private:
 		Contact	contact[8];
 	public:
+	Phonebook();
+	~Phonebook();
+	
 };
 
 #endif

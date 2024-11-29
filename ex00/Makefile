@@ -6,12 +6,13 @@
 #    By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 15:33:04 by simarcha          #+#    #+#              #
-#    Updated: 2024/11/25 13:04:24 by simarcha         ###   ########.fr        #
+#    Updated: 2024/11/28 18:36:24 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
 NAME		= megaphone
+COMP		= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC			= megaphone.cpp
@@ -19,8 +20,11 @@ SRC			= megaphone.cpp
 #Rules
 all:		$(NAME)
 
+#%.o:		megaphone.cpp
+#			$(COMP) $(CPPFLAGS) -c $< -o $@
+
 $(NAME):	Makefile
-			g++ $(CPPFLAGS) $(SRC) -o $(NAME)
+			c++ $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
 			rm -rf *.o
