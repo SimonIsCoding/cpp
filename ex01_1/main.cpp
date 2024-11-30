@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:49:48 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/30 17:19:53 by simon            ###   ########.fr       */
+/*   Updated: 2024/11/30 19:11:46 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 #include <string.h>
 #include <stdio.h>
 
-void	add_contact(Contact &contact, int *nb_contact)
+void	add_contact(Contact &contact, int *nb_contact, Phonebook phonebook)
 {
-	printf("ADD written\n");
-
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
@@ -49,7 +47,7 @@ void	add_contact(Contact &contact, int *nb_contact)
 	std::cout << "phone_number: " << contact.get_phone_number() << std::endl;
 	std::cout << "darkest_secret: " << contact.get_darkest_secret() << std::endl;
 
-	
+	phonebook.add_to_phonebook(first_name, last_name, nickname, phone_number, darkest_secret);
 	return ;
 }
 
@@ -60,8 +58,6 @@ void	complete_field(std::string str)
 	int	i;
 
 	i = -1;
-	// if (!str)
-	// 	return ;
 	len = str.size();
 	if (len > 10)
 	{
@@ -80,35 +76,31 @@ void	complete_field(std::string str)
 	std::cout << '|';
 }
 
-// void	fit_in_the_cell(char *str)
-// {
-// 	if (strlen(str) )
-// }
-
-void	search_contact(Contact& contact, int *nb_contact)
+void	search_contact(Contact& contact, int *nb_contact, Phonebook phonebook)
 {
+	int	i;
+
+	i = -1;
 	printf("SEARCH written\n");
 	std::cout << " ___________________________________________" << std::endl;
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|" << std::endl;
 	if (*nb_contact > 0)
-	{
-		std::cout << "|         " << contact.get_contact_index() << "|";
-		complete_field(contact.get_first_name());
-		complete_field(contact.get_last_name());
-		complete_field(contact.get_nickname());
-		// complete_field(contact.get_phone_number());
-		// complete_field(contact.get_darkest_secret());
-		std::cout << std::endl;
+	{	
+		while (++i < *nb_contact)
+		{
+			std::cout << "|         " << contact.get_contact_index() << "|";
+			complete_field(contact.get_first_name());
+			complete_field(contact.get_last_name());
+			complete_field(contact.get_nickname());
+			// complete_field(contact.get_phone_number());
+			// complete_field(contact.get_darkest_secret());
+			std::cout << std::endl;
+		}
 	}
 	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << std::endl;
 	
 	return ;
-}
-
-void	init_contact(Contact)
-{
-	
 }
 
 int	main(void)
@@ -116,6 +108,7 @@ int	main(void)
 	char		input[32];
 	int			nb_contact;
 	Contact		contact;
+	Phonebook	phonebook;
 
 	nb_contact = 0;
 	std::cout << "Welcome to the PhoneBook!\n";
@@ -132,9 +125,9 @@ int	main(void)
 		if (strcmp(input, "EXIT") == 0)
 			return (0);
 		else if (strcmp(input, "ADD") == 0)
-			add_contact(contact, &nb_contact);
+			add_contact(contact, &nb_contact, phonebook);
 		else
-			search_contact(contact, &nb_contact);
+			search_contact(contact, &nb_contact, phonebook);
 		std::cout << "Enter a command like ADD, SEARCH or EXIT: ";
 		std::cin >> input;
 	}
