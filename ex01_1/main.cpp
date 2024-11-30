@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:49:48 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/29 10:44:22 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/11/30 17:19:53 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	add_contact(Contact &contact, int *nb_contact)
 	std::cout << "phone_number: " << contact.get_phone_number() << std::endl;
 	std::cout << "darkest_secret: " << contact.get_darkest_secret() << std::endl;
 
-	// printf("index = %i\n", *(nb_contact));
+	
 	return ;
 }
 
@@ -100,9 +100,9 @@ void	search_contact(Contact& contact, int *nb_contact)
 		// complete_field(contact.get_phone_number());
 		// complete_field(contact.get_darkest_secret());
 		std::cout << std::endl;
-		std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << std::endl;
 	}
-	printf("*nb_contact = %i\n", *nb_contact);
+	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << std::endl;
+	
 	return ;
 }
 
@@ -121,7 +121,7 @@ int	main(void)
 	std::cout << "Welcome to the PhoneBook!\n";
 	std::cout << "Enter a command like ADD, SEARCH or EXIT: ";
 	std::cin >> input;
-	while (1)
+	while (!std::cin.eof())
 	{
 		while ((strcmp(input, "SEARCH") &&  strcmp(input, "ADD")
 				&& strcmp(input, "EXIT")))
