@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:49:48 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/30 19:11:46 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/08 18:43:30 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "phonebook.class.hpp"
 #include <iostream>
 #include <string.h>
+#include <sstream>
 #include <stdio.h>
 
 void	add_contact(Contact &contact, int *nb_contact, Phonebook phonebook)
@@ -24,7 +25,7 @@ void	add_contact(Contact &contact, int *nb_contact, Phonebook phonebook)
 	std::string	phone_number;
 	std::string	darkest_secret;
 
-	contact.set_index(++(*nb_contact));
+	contact.set_index(++(*nb_contact));//il faut s'assurer que si l'index est superieur a 8, on efface le premier et on soustrait de 1 tous les autres
 	std::cout << "Contact's first name: ";
 	std::cin >> first_name;
 	contact.set_first_name(first_name);
@@ -40,14 +41,14 @@ void	add_contact(Contact &contact, int *nb_contact, Phonebook phonebook)
 	std::cout << "Contact's darkest_secret: ";
 	std::cin >> darkest_secret;
 	contact.set_darkest_secret(darkest_secret);
-	std::cout << "index: " << contact.get_contact_index() << std::endl;
-	std::cout << "first_name: " << contact.get_first_name() << std::endl;
-	std::cout << "last_name: " << contact.get_last_name() << std::endl;
-	std::cout << "nickname: " << contact.get_nickname() << std::endl;
-	std::cout << "phone_number: " << contact.get_phone_number() << std::endl;
-	std::cout << "darkest_secret: " << contact.get_darkest_secret() << std::endl;
+	// std::cout << "index: " << contact.get_contact_index() << std::endl;
+	// std::cout << "first_name: " << contact.get_first_name() << std::endl;
+	// std::cout << "last_name: " << contact.get_last_name() << std::endl;
+	// std::cout << "nickname: " << contact.get_nickname() << std::endl;
+	// std::cout << "phone_number: " << contact.get_phone_number() << std::endl;
+	// std::cout << "darkest_secret: " << contact.get_darkest_secret() << std::endl;
 
-	phonebook.add_to_phonebook(first_name, last_name, nickname, phone_number, darkest_secret);
+	phonebook.add_to_phonebook(first_name, last_name, nickname, phone_number, darkest_secret, *nb_contact);
 	return ;
 }
 
@@ -75,32 +76,31 @@ void	complete_field(std::string str)
 	}
 	std::cout << '|';
 }
-
-void	search_contact(Contact& contact, int *nb_contact, Phonebook phonebook)
+void	print_contact_details(Contact& contact)
 {
-	int	i;
+	std::cout << "first_name: " << contact.get_first_name() << std::endl;
+	std::cout << "last_name: " << contact.get_last_name() << std::endl;
+	std::cout << "nickname: " << contact.get_nickname() << std::endl;
+	std::cout << "phone_number: " << contact.get_phone_number() << std::endl;
+	std::cout << "darkest_secret: " << contact.get_darkest_secret() << std::endl;
+}
 
-	i = -1;
-	printf("SEARCH written\n");
-	std::cout << " ___________________________________________" << std::endl;
-	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-	std::cout << "|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾|" << std::endl;
-	if (*nb_contact > 0)
-	{	
-		while (++i < *nb_contact)
-		{
-			std::cout << "|         " << contact.get_contact_index() << "|";
-			complete_field(contact.get_first_name());
-			complete_field(contact.get_last_name());
-			complete_field(contact.get_nickname());
-			// complete_field(contact.get_phone_number());
-			// complete_field(contact.get_darkest_secret());
-			std::cout << std::endl;
-		}
+void	Phonebook::show_contact_details(std::string input)
+{
+	int	number;
+
+	std::istringstream(input) >> number;
+	if (number <= _current_size)//si le number n'appartient a aucun index de phonebook
+	{
+		std::cout << "The Index is out of range" << std::endl;//on imprime un message d'erreur et on a arrete cette fonction
+		return ;
 	}
-	std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << std::endl;
-	
-	return ;
+	else
+	{
+		for (int i = 1; i < _current_size; i++)
+			if (_contact[i].get_contact_index() == number)
+				print_contact_details(_contact[i]);
+	}
 }
 
 int	main(void)
@@ -127,7 +127,7 @@ int	main(void)
 		else if (strcmp(input, "ADD") == 0)
 			add_contact(contact, &nb_contact, phonebook);
 		else
-			search_contact(contact, &nb_contact, phonebook);
+			phonebook.search_contact(contact, &nb_contact);
 		std::cout << "Enter a command like ADD, SEARCH or EXIT: ";
 		std::cin >> input;
 	}

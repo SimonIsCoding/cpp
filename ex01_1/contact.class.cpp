@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:14:47 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/28 19:01:18 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:33:16 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	Contact::set_darkest_secret(std::string str)
 
 void	Contact::set_index(int idx)
 {
+	if (idx > 8)
+		idx = 8;
 	this->index = idx;
 }
 
