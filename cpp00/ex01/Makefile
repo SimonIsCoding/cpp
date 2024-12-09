@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+         #
+#    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 13:05:02 by simarcha          #+#    #+#              #
-#    Updated: 2024/11/29 10:46:45 by simarcha         ###   ########.fr        #
+#    Updated: 2024/12/09 18:43:28 by simon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ all:		$(NAME)
 
 $(NAME):	Makefile $(INCLUDES) $(OBJS)
 			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+
+%.o:		%.cpp $(INCLUDES)
+			$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 			rm -rf $(OBJS)
