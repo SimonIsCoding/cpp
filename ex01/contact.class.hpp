@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:15:15 by simarcha          #+#    #+#             */
-/*   Updated: 2024/11/28 19:01:31 by simarcha         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:15:48 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ class	Contact
 	std::string get_phone_number() const {return _phone_number;}
 	std::string get_darkest_secret() const {return _darkest_secret;}
 
-	void		set_index(int idx);
 	void		set_first_name(std::string str);
 	void		set_last_name(std::string str);
 	void		set_nickname(std::string str);
 	void		set_phone_number(std::string str);
 	void		set_darkest_secret(std::string str);
+	void		set_contact_details(Contact& contact);
 };
 
 #endif
