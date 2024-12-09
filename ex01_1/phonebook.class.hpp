@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:14:20 by simarcha          #+#    #+#             */
-/*   Updated: 2024/12/09 13:04:50 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:16:37 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Phonebook
 	public:
 	Phonebook();
 	~Phonebook();
-	void	add_contact(Contact& contact, int *nb_contact);
+	void	add_contact(Contact& contact);
 	void	add_to_phonebook(std::string first_name, std::string last_name,
 		std::string nickname, std::string phone_number, std::string darkest_secret, int index);
 	void	search_contact();

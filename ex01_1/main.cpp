@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:49:48 by simarcha          #+#    #+#             */
-/*   Updated: 2024/12/09 13:19:08 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:16:46 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(void)
 		if (strcmp(input, "EXIT") == 0)
 			return (0);
 		else if (strcmp(input, "ADD") == 0)
-			phonebook.add_contact(contact, &nb_contact);
+			phonebook.add_contact(contact);
 		else
 			phonebook.search_contact();
 		std::cout << "Enter a command like ADD, SEARCH or EXIT: ";

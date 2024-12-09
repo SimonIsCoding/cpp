@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:14:47 by simarcha          #+#    #+#             */
-/*   Updated: 2024/12/09 13:15:56 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/09 14:15:56 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,7 @@ void	Contact::set_darkest_secret(std::string str)
 	this->_darkest_secret = str;
 }
 
-// void	Contact::set_index(int idx)
-// {
-// 	if (idx > 8)
-// 		idx = 8;
-// 	this->index = idx;
-// }
-
-void	Contact::set_contact_details(Contact& contact, int nb_contact)
+void	Contact::set_contact_details(Contact& contact)
 {	
 	std::string	first_name;
 	std::string	last_name;
@@ -57,8 +50,6 @@ void	Contact::set_contact_details(Contact& contact, int nb_contact)
 	std::string	phone_number;
 	std::string	darkest_secret;
 
-	(void)nb_contact;
-	// contact.set_index(++(nb_contact));
 	std::cout << "Contact's first name: ";
 	std::cin >> first_name;
 	contact.set_first_name(first_name);
