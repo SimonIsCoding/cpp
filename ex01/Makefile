@@ -6,7 +6,7 @@
 #    By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 13:05:02 by simarcha          #+#    #+#              #
-#    Updated: 2024/11/28 18:39:26 by simarcha         ###   ########.fr        #
+#    Updated: 2024/11/29 10:46:45 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ INCLUDES	= phonebook.class.hpp \
 
 SRCS		= phonebook.class.cpp \
 			contact.class.cpp \
-			prompt.cpp \
 			main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
