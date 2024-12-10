@@ -6,13 +6,13 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 18:23:44 by simon             #+#    #+#              #
-#    Updated: 2024/12/10 11:37:41 by simon            ###   ########.fr        #
+#    Updated: 2024/12/10 12:58:35 by simon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 NAME		= BraiiiiiiinnnzzzZ
 RM			= rm -rf
 
