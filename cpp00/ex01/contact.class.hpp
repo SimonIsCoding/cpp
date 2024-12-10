@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:15:15 by simarcha          #+#    #+#             */
-/*   Updated: 2024/12/09 14:15:48 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/10 18:08:07 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class	Contact
 	public:
 	Contact();
 	~Contact();
-	int			index;
-	int			get_contact_index() const {return index;}
+	// int			index;
+	// int			get_contact_index() const {return index;}
 	std::string get_first_name() const {return _first_name;}
 	std::string get_last_name() const {return _last_name;}
 	std::string get_nickname() const {return _nickname;}
