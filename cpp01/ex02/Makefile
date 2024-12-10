@@ -5,41 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/10 11:42:47 by simon             #+#    #+#              #
-#    Updated: 2024/12/10 16:12:13 by simarcha         ###   ########.fr        #
+#    Created: 2024/12/10 15:45:58 by simon             #+#    #+#              #
+#    Updated: 2024/12/10 16:31:16 by simon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#Variable
-COMP		= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-RM			= rm -rf
-NAME		= Moar_brainz!
-
-INCLUDE		= Zombie.hpp
-
-SRCS		= main.cpp \
-			Zombie.cpp \
-			zombieHorde.cpp
-
-OBJS		= $(SRCS:.cpp=.o)
+#Variables
+COMP	= c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -rf
+NAME	= brain
+SRCS	= main.cpp
+#OBJS	= $(SRCS:.cpp=.o)
 
 #Rules
-all:		$(NAME)
+all:	$(NAME)
 
-$(NAME):	Makefile $(INCLUDE) $(OBJS)
-			$(COMP) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME): Makefile main.o#$(OBJS)
+		$(COMP) $(FLAGS) main.o -o $(NAME)
 
-%.o:		%.cpp $(INCLUDE)
-			$(COMP) $(FLAGS) -c $< -o $@
-
+%.o:	%.cpp
+		$(COMP) $(FLAGS) -c $< -o $@
+		
 clean:
-			$(RM) $(OBJS)
+		$(RM) main.o
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean:	clean
+		$(RM) $(NAME)
 
-re:			fclean all
+re:		fclean all
 
-PHONY:		clean fclean re all
- 
+PHONY:	all clean fclean re
