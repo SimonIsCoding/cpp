@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:47:07 by simon             #+#    #+#             */
-/*   Updated: 2024/12/11 21:01:19 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/12 11:59:47 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	read_and_replace_occurrence(std::string reference, std::string replaced,
 			line.insert(pos, replaced);
 			pos += replaced.length();
 		}
-		filename_replace << line << std::endl;
+		if (!filename.eof())
+			filename_replace << line << std::endl;
+		else
+			filename_replace << line;
 	}
 }
 
