@@ -6,7 +6,7 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 12:31:33 by simon             #+#    #+#              #
-#    Updated: 2024/12/16 15:33:42 by simon            ###   ########.fr        #
+#    Updated: 2024/12/16 18:39:04 by simon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS		= $(SRCS:.cpp=.o)
 #Rules
 all:		$(NAME)
 
-$(NAME):	 Makefile $(INCLUDE) $(OBJS)
+$(NAME):	Makefile $(INCLUDE) $(OBJS)
 			$(COMP) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o:		%.cpp $(INCLUDE)
