@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:29:46 by simon             #+#    #+#             */
-/*   Updated: 2024/12/20 19:15:53 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/20 20:03:56 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,16 @@ Fixed::Fixed(Fixed const &copy)
 	*this = copy;
 }
 
-Fixed::~Fixed(void)
+Fixed::Fixed(const int n)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Int constructor called" << std::endl;
+	_value = n << _fractionnal;//conversion of int into fixed-piont format
+}
+
+Fixed::Fixed(const float n)
+{
+	std::cout << "Float constructor called" << std::endl;
+	
 }
 
 Fixed& Fixed::operator=(const Fixed &copy)
@@ -48,4 +55,18 @@ void Fixed::setRawBits(int const raw)
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	this->_value = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+}
+
+int	Fixed::toInt(void) const
+{
+	return (_value >> _fractionnal);
+}
+
+Fixed::~Fixed(void)
+{
+	std::cout << "Destructor called" << std::endl;
 }
