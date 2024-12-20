@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 19:00:32 by simon             #+#    #+#             */
-/*   Updated: 2024/12/15 21:48:14 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/20 19:03:55 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed
 {
 	private:
-		int			_number;
+		int			_value;
 		static int	_fractional_part;
 
 	public:
