@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:31:03 by simon             #+#    #+#             */
-/*   Updated: 2024/12/20 20:02:14 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/21 14:40:00 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,5 @@ class	Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 };
+
+std::ostream&	operator<<(std::ostream &os, const Fixed &fixed);
