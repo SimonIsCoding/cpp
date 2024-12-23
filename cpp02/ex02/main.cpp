@@ -6,11 +6,12 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:26:56 by simon             #+#    #+#             */
-/*   Updated: 2024/12/21 17:27:40 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/23 21:22:07 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Fixed.hpp"
 
 int	main(void)
 {
