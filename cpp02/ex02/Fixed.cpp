@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 18:12:56 by simon             #+#    #+#             */
-/*   Updated: 2024/12/23 23:00:23 by simon            ###   ########.fr       */
+/*   Updated: 2024/12/25 16:27:59 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,30 +67,30 @@ std::ostream& operator <<(std::ostream &os, const Fixed &fixed)
 	return (os);
 }
 
-Fixed Fixed::operator++(int)
+Fixed& Fixed::operator++()
 {
 	_value++;
 	return (*this);
 }
 
-Fixed& Fixed::operator++()
+Fixed Fixed::operator++(int)
 {
-	Fixed	temp = *this;
+	Fixed	temp(*this);
 	_value++;
 	return (temp);
 }
 
 Fixed Fixed::operator--(int)
 {
+	Fixed	temp(*this);
 	_value--;
-	return (*this);
+	return (temp);
 }
 
 Fixed& Fixed::operator--()
 {
-	Fixed	temp = *this;
 	_value--;
-	return (temp);
+	return (*this);
 }
 
 bool	Fixed::operator==(const Fixed &other) const
@@ -143,7 +143,7 @@ Fixed	Fixed::operator*(const Fixed &other) const
 {
 	Fixed result;
 
-	result.setRawBits(this->_value * other.getRawBits());
+	result.setRawBits((this->_value * other.getRawBits()) >> _fract);
 	return (result);
 }
 
@@ -155,18 +155,18 @@ Fixed	Fixed::operator/(const Fixed &other) const
 	return (result);
 }
 
-const static Fixed	&min(Fixed const &a, Fixed const &b)
+Fixed::~Fixed()
 {
-	if (a.getRawBits() < b.getRawBits())
-		return (a);
-	return (b);
 }
 
-const static Fixed	&min(Fixed const &a, Fixed const &b)
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 {
-	if (a.getRawBits() > b.getRawBits())
-		return (a);
-	return (b);
+	return a < b ? a : b;
+}
+
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
+{
+	return a > b ? a : b;
 }
 
 Fixed const	&min(Fixed const &a, Fixed const &b)
@@ -177,8 +177,4 @@ Fixed const	&min(Fixed const &a, Fixed const &b)
 Fixed const	&max(Fixed const &a, Fixed const &b)
 {
 	return (Fixed::max(a, b));
-}
-
-Fixed::~Fixed()
-{
 }
