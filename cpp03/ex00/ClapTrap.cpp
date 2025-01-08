@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:44:28 by simon             #+#    #+#             */
-/*   Updated: 2025/01/08 15:54:24 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/08 17:53:30 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap::ClapTrap(ClapTrap const & copy)
 {
-	std::cout << "Copy consrtuctor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 	return ;
 }
 
 ClapTrap&	ClapTrap::operator=(ClapTrap const & copy)
 {
+	std::cout << "Operator = called" << std::endl;
 	if (&copy != this)
 		this->_name = copy._name;
 	return (*this);	
