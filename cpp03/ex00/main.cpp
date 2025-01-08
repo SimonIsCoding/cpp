@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:44:41 by simon             #+#    #+#             */
-/*   Updated: 2025/01/08 11:55:43 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/08 17:52:32 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(void)
 {
 	ClapTrap	Pikachu("Pikachu");
 	ClapTrap	Bulbizarre("Bulbizarre");
+	ClapTrap	test(Pikachu);
+	ClapTrap	test2 = test;
 
 	Pikachu.attack("Bulbizarre");
 	Bulbizarre.takeDamage(1);
