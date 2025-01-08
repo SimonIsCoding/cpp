@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:44:28 by simon             #+#    #+#             */
-/*   Updated: 2025/01/08 11:53:48 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/08 15:54:24 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ ClapTrap::ClapTrap(void)
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << "Default Destructor Called" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const & copy)
+{
+	std::cout << "Copy consrtuctor called" << std::endl;
+	*this = copy;
+	return ;
+}
+
+ClapTrap&	ClapTrap::operator=(ClapTrap const & copy)
+{
+	if (&copy != this)
+		this->_name = copy._name;
+	return (*this);	
 }
 
 ClapTrap::ClapTrap(std::string _name) : _name(_name), _hit_points(10), _energy_points(10), _attack_damage(1)
