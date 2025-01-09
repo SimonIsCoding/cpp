@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:44:28 by simon             #+#    #+#             */
-/*   Updated: 2025/01/09 16:04:29 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/09 18:52:47 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << "ClapTrap " << _name << " is being repaired for " << amount << " points" << std::endl;
 		_hit_points += amount;
-		if (_hit_points > 10)
-			_hit_points = 10;
+		if (_hit_points > _max_hit_points)
+			_hit_points = _max_hit_points;
 		_energy_points--;
 	}
 	else
@@ -91,5 +91,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::print_status(void)
 {
-	std::cout << "Clap Trap " << _name << " has " << _hit_points << " _hit_points, has a power of " << _attack_damage << " _attack_damage and has " << _energy_points << " _energy_points remaining." << std::endl;
+	std::cout << "ClapTrap " << _name << " has " << _hit_points << " _hit_points, has a power of " << _attack_damage << " _attack_damage and has " << _energy_points << " _energy_points remaining." << std::endl;
 }
