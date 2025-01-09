@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 16:44:28 by simon             #+#    #+#             */
-/*   Updated: 2025/01/08 19:51:41 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/09 15:54:59 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ ClapTrap&	ClapTrap::operator=(ClapTrap const & copy)
 	std::cout << "ClapTrap Operator = called" << std::endl;
 	if (&copy != this)
 		this->_name = copy._name;
-	return (*this);	
+	return (*this);
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0), _max_hit_points(10)
 {
 	std::cout << "ClapTrap Constructor for " << name << " Called" << std::endl;
 }
@@ -80,16 +80,16 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << "ClapTrap " << _name << " is being repaired for " << amount << " points" << std::endl;
 		_hit_points += amount;
-		if (_hit_points > 10)
-			_hit_points = 10;
+		if (_hit_points > _max_hit_points)
+			_hit_points = _max_hit_points;
 		_energy_points--;
 	}
 	else
 		std::cout << "ClapTrap " << _name << " is already dead." << std::endl;
-	std::cout << "ClapTrap has now " << _hit_points << " _hit_points." << std::endl;
+	std::cout << "ClapTrap " << _name << " has now " << _hit_points << " _hit_points." << std::endl;
 }
 
 void	ClapTrap::print_status(void)
 {
-	std::cout << "Clap Trap " << _name << " has " << _hit_points << " _hit_points, has a power of " << _attack_damage << " _attack_damage and has " << _energy_points << " _energy_points remaining." << std::endl;
+	std::cout << "ClapTrap " << _name << " has " << _hit_points << " _hit_points, has a power of " << _attack_damage << " _attack_damage and has " << _energy_points << " _energy_points remaining." << std::endl;
 }
