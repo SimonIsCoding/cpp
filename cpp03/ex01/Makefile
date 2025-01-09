@@ -6,7 +6,7 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:05:09 by simon             #+#    #+#              #
-#    Updated: 2025/01/08 12:23:00 by simon            ###   ########.fr        #
+#    Updated: 2025/01/09 13:14:02 by simon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INCLUDES	= ClapTrap.hpp ScavTrap.hpp
 SRCS		= ClapTrap.cpp \
 			main.cpp \
 			ScavTrap.cpp
-OBJS		= $(SRCS.cpp=.o)
+OBJS		= $(SRCS:.cpp=.o)
 
 #Rules
 all:		$(NAME)
