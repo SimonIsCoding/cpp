@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:59:19 by simon             #+#    #+#             */
-/*   Updated: 2025/01/12 19:05:17 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/12 19:38:33 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@ int main()
 	j->makeSound();
 	meta->makeSound();
 	// ...
+	delete j;
+	delete i;
+	delete meta;
+	
 	return (0);
 }

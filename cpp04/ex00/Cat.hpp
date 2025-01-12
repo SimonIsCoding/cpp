@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:44:27 by simon             #+#    #+#             */
-/*   Updated: 2025/01/12 18:52:53 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/12 19:31:26 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class	Cat : public Animal
 {
 	private:
-		std::string	_type;
 		
 	public:
 		Cat();
@@ -26,7 +25,9 @@ class	Cat : public Animal
 		Cat(Cat const &copy);
 		Cat& operator=(Cat const &copy);
 
-		virtual void	makeSound();
+		virtual void	makeSound() const;
+
+		std::string	getType();
 };
 
 #endif
