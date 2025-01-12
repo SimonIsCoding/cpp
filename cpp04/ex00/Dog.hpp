@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 17:08:48 by simon             #+#    #+#             */
-/*   Updated: 2025/01/12 17:14:04 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/12 19:30:56 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class	Dog : public Animal
 {
 	private:
-		std::string	_type;
 
 	public:
 		Dog();
@@ -26,7 +25,7 @@ class	Dog : public Animal
 		Dog(Dog const &copy);
 		Dog& operator=(Dog const &copy);
 		
-		virtual void	makeSound();
+		virtual void	makeSound() const;
 };
 
 #endif

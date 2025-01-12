@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:08:34 by simon             #+#    #+#             */
-/*   Updated: 2025/01/12 16:53:10 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/12 19:16:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@ Animal& Animal::operator=(Animal const &copy)
 	return (*this);
 }
 
-void	Animal::makeSound()
+void	Animal::makeSound() const
 {
 	std::cout << "Animal is making sound" << std::endl;
+}
+
+std::string	Animal::getType() const
+{
+	return (_type);
 }
 
 Animal::~Animal()

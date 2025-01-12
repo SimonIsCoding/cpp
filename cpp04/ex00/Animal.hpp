@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:00:05 by simon             #+#    #+#             */
-/*   Updated: 2025/01/12 19:05:01 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/12 19:38:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Animal
 
 	public:
 		Animal();
-		~Animal();
+		virtual ~Animal();
 		Animal(Animal const &copy);
 		Animal& operator=(Animal const &copy);
 		
-		virtual void	makeSound();
+		virtual void	makeSound() const;
 
-		getType();
+		std::string	getType()const;
 };
 
 #endif
