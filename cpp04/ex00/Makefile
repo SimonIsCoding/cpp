@@ -6,7 +6,7 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/12 15:47:54 by simon             #+#    #+#              #
-#    Updated: 2025/01/12 19:39:59 by simon            ###   ########.fr        #
+#    Updated: 2025/01/13 15:21:47 by simon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME		= Polymorphism
 RM			= rm -rf
 COMP		= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
-INCLUDES	= Animal.hpp Dog.hpp Cat.hpp
-SRCS		= Animal.cpp Dog.cpp Cat.cpp main.cpp
+INCLUDES	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+SRCS		= Animal.cpp Dog.cpp Cat.cpp main.cpp WrongCat.cpp WrongAnimal.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
 #Rules
