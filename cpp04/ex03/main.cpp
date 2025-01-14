@@ -5,41 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/12 15:59:19 by simon             #+#    #+#             */
-/*   Updated: 2025/01/14 12:29:59 by simon            ###   ########.fr       */
+/*   Created: 2025/01/14 15:28:47 by simon             #+#    #+#             */
+/*   Updated: 2025/01/14 16:23:57 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	Animal*	Animals[100];
-
-	for (int k = 0; k < 100; k++)
-	{
-		if (k < 50)
-			Animals[k] = new Dog();
-		else
-			Animals[k] = new Cat();
-	}
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	
-	delete j;//should not create a leak
-	delete i;
+	ICharacter* me = new Character("me");
 	
-	for (int k = 0; k < 100; k++)
-	{
-		if (k < 50)
-			delete Animals[k];
-		else
-			delete Animals[k];
-	}
-
-	return (0);
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	
+	ICharacter* bob = new Character("bob");
+	
+	me->use(0, *bob);
+	me->use(1, *bob);
+	
+	delete bob;
+	delete me;
+	delete src;
+	
+	return 0;
 }

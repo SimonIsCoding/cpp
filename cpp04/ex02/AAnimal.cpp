@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:08:34 by simon             #+#    #+#             */
-/*   Updated: 2025/01/14 12:29:59 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/12 19:16:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
-	std::cout << "Default Constructor Animal Called" << std::endl;
+	std::cout << "Default Constructor AAnimal Called" << std::endl;
 }
 
-Animal::Animal(Animal const &copy)
+AAnimal::AAnimal(AAnimal const &copy)
 {
-	std::cout << "Copy Constructor Animal Called" << std::endl;
+	std::cout << "Copy Constructor AAnimal Called" << std::endl;
 	_type = copy._type;
 }
 
-Animal& Animal::operator=(Animal const &copy)
+AAnimal& AAnimal::operator=(AAnimal const &copy)
 {
-	std::cout << "Animal Operator = Called" << std::endl;
+	std::cout << "AAnimal Operator = Called" << std::endl;
 	if (this != &copy)
 		this->_type = copy._type;
 	return (*this);
 }
 
-void	Animal::makeSound() const
-{
-	std::cout << "Animal is making sound" << std::endl;
-}
-
-std::string	Animal::getType() const
+std::string	AAnimal::getType() const
 {
 	return (_type);
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Desctructor Animal Called" << std::endl;
+	std::cout << "Desctructor AAnimal Called" << std::endl;
 }
