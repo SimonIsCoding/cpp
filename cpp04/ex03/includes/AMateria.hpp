@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:19:11 by simon             #+#    #+#             */
-/*   Updated: 2025/01/14 19:28:17 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/15 19:22:27 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define AMATERIA_HPP
 
 #include <iostream>
+#include "ICharacter.hpp"
 
 class AMateria
 {

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 16:26:19 by simon             #+#    #+#             */
-/*   Updated: 2025/01/14 17:10:24 by simon            ###   ########.fr       */
+/*   Created: 2025/01/15 19:22:31 by simon             #+#    #+#             */
+/*   Updated: 2025/01/15 19:28:39 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#ifndef	CHARACTER_HPP
+#define	CHARACTER_HPP
 
-IMateriaSource::IMateriaSource()
+#include <iostream>
+#include "ICharacter.hpp"
+
+class	Character : public ICharacter
 {
-}
+	private:
+		std::string	_name;
 
-IMateriaSource::~IMateriaSource()
-{
-}
+	public:
+		
+	
+};
 
-IMateriaSource::IMateriaSource(IMateriaSource const& copy)
-{
-	*this = copy;
-}
-
-IMateriaSource& IMateriaSource::operator=(IMateriaSource const& copy)
-{
-	if (this != &copy)
-		*this = copy;
-	return (*this);
-}
-
+#endif
