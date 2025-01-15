@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:58:13 by simon             #+#    #+#             */
-/*   Updated: 2025/01/14 19:37:54 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/15 13:09:57 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ AMateria& AMateria::operator=(AMateria const& copy)
 	return (*this);
 }
 
-
-
 std::string const & AMateria::getType() const
 {
 	return (_type);
+}
+
+void use(ICharacter& target)
+{
+	if (target._type == )
 }
