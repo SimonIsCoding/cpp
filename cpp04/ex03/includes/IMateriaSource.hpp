@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:51:17 by simon             #+#    #+#             */
-/*   Updated: 2025/01/15 15:05:11 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/16 20:56:43 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define IMATERIASOURCE_HPP
 
 #include <iostream>
+#include "AMateria.hpp"
 
 class IMateriaSource
 {
