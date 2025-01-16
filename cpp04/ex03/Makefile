@@ -6,45 +6,46 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 15:03:57 by simon             #+#    #+#              #
-#    Updated: 2025/01/15 19:58:36 by simon            ###   ########.fr        #
+#    Updated: 2025/01/16 21:18:32 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
-NAME		= Interface
+NAME		= exo03
 RM			= rm -rf
 COMP		= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
-INCLUDE_DIR	= ./includes/
-INCLUDE_FLAG= $(addprefix -I, $(INCLUDE_DIR))
-INCLUDES	= $(INCLUDE_DIR)!AMateria.hpp \
-			Character.hpp \
-			Cure.hpp \
-			Ice.hpp \
-			ICharacter.hpp \
-			IMateriaSource.hpp \
-			MateriaSource.hpp
+INCLUDE_DIR		= ./includes/
+INCLUDE_FLAG	= -I$(INCLUDE_DIR)
+INCLUDE_FILES	= AMateria.hpp \
+				Character.hpp \
+				Cure.hpp \
+				Ice.hpp \
+				ICharacter.hpp \
+				IMateriaSource.hpp \
+				MateriaSource.hpp
+INCLUDES		= $(addprefix $(INCLUDE_DIR), $(INCLUDE_FILES))
 
-SRCS		= ./srcs/AMateria.cpp \
-			./srcs/Character.cpp \
-			./srcs/Cure.cpp \
-			./srcs/Ice.cpp \
-			./srcs/ICharacter.cpp \
-			./srcs/IMateriaSource.cpp \
-			./srcs/MateriaSource.cpp \
-			main.cpp
+SRCS_DIR	= ./srcs/
+SRCS_FILES	= main.cpp \
+			AMateria.cpp \
+ 			Character.cpp \
+ 			Cure.cpp \
+ 			Ice.cpp \
+ 			MateriaSource.cpp
+SRCS		= $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
 OBJS		= $(SRCS:.cpp=.o)
 
 #Rules
 all:		$(NAME)
 
-$(NAME):	Makefile $(INCLUDE_FLAG) $(OBJS)
-			$(COMP) $(FLAGS) -c $(OBJS) -o $(NAME)
+$(NAME):	Makefile $(INCLUDES) $(OBJS)
+			$(COMP) $(FLAGS) $(INCLUDE_FLAG) $(OBJS) -o $(NAME)
 
-%.o:		%.cpp $(INCLUDE_FLAG)
-			$(COMP) $(FLAGS) -c $< -o $@
+%.o:		%.cpp $(INCLUDES)
+			$(COMP) $(FLAGS) $(INCLUDE_FLAG) -c $< -o $@
 
 clean:
 			$(RM) $(OBJS)
