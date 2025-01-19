@@ -6,11 +6,11 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:24:43 by simon             #+#    #+#             */
-/*   Updated: 2025/01/16 19:56:09 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/16 21:31:46 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "../includes/Character.hpp"
 
 Character::Character() : _name("default"), _inventory()
 {
