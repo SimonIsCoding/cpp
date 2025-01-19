@@ -6,11 +6,11 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:58:13 by simon             #+#    #+#             */
-/*   Updated: 2025/01/16 21:28:32 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/16 21:31:48 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "../includes/AMateria.hpp"
 
 AMateria::~AMateria()
 {
@@ -22,8 +22,8 @@ AMateria::AMateria(std::string const& type) : _type(type)
 
 AMateria::AMateria(AMateria const &copy) : _type(copy._type)
 {
-    std::cout << "AMateria Copy constructor called" << std::endl;
-    *this = copy;
+	std::cout << "AMateria Copy constructor called" << std::endl;
+	*this = copy;
 }
 
 AMateria const& AMateria::operator=(AMateria const& copy)
