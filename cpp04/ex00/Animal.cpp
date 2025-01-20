@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:08:34 by simon             #+#    #+#             */
-/*   Updated: 2025/01/12 19:16:12 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 16:29:04 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Animal::Animal()
 Animal::Animal(Animal const &copy)
 {
 	std::cout << "Copy Constructor Animal Called" << std::endl;
-	_type = copy._type;
+	*this = copy;
 }
 
 Animal& Animal::operator=(Animal const &copy)
@@ -33,7 +33,7 @@ Animal& Animal::operator=(Animal const &copy)
 
 void	Animal::makeSound() const
 {
-	std::cout << "Animal is making sound" << std::endl;
+	std::cout << "Animal sound is GRRR" << std::endl;
 }
 
 std::string	Animal::getType() const

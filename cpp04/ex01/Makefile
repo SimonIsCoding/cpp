@@ -6,7 +6,7 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/12 15:47:54 by simon             #+#    #+#              #
-#    Updated: 2025/01/14 12:30:26 by simon            ###   ########.fr        #
+#    Updated: 2025/01/20 15:17:47 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		= Polymorphism_ex01
 RM			= rm -rf
 COMP		= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 INCLUDES	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 SRCS		= Animal.cpp Dog.cpp Cat.cpp main.cpp WrongCat.cpp WrongAnimal.cpp \
 			Brain.cpp

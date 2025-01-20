@@ -3,43 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/12 15:59:19 by simon             #+#    #+#             */
-/*   Updated: 2025/01/14 12:29:59 by simon            ###   ########.fr       */
+/*   Created: 2023/09/30 00:45:29 by fbosch            #+#    #+#             */
+/*   Updated: 2025/01/20 15:59:24 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "Cat.hpp"
 #include "Dog.hpp"
+#include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main()
+int	main(void)
 {
+
+	Dog og;
+	Dog tmp = og;
+	Cat og2;
+	Cat tmp2 = og2;
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	Animal*	Animals[100];
-
-	for (int k = 0; k < 100; k++)
-	{
-		if (k < 50)
-			Animals[k] = new Dog();
-		else
-			Animals[k] = new Cat();
-	}
-	
 	delete j;//should not create a leak
 	delete i;
-	
-	for (int k = 0; k < 100; k++)
-	{
-		if (k < 50)
-			delete Animals[k];
-		else
-			delete Animals[k];
-	}
 
 	return (0);
 }

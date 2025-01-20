@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:22 by aperez-b          #+#    #+#             */
-/*   Updated: 2025/01/20 12:24:39 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 12:59:30 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ MateriaSource::MateriaSource(MateriaSource const &copy): IMateriaSource(copy), _
 
 MateriaSource const	&MateriaSource::operator=(const MateriaSource &copy)
 {
-	*this = copy;
+	(void)copy;
 	return (*this);
 }
 

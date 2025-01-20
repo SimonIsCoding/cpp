@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:30:31 by aperez-b          #+#    #+#             */
-/*   Updated: 2025/01/20 12:34:16 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 15:44:09 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int main()
 		AMateria* tmp;
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
+		delete tmp;
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
-
+		delete tmp;
 		ICharacter* bob = new Character("bob");
 		me->use(0, *bob);
 		me->use(1, *bob);

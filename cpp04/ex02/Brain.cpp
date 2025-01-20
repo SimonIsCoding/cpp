@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:32:31 by simon             #+#    #+#             */
-/*   Updated: 2025/01/13 19:45:49 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 15:48:46 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ Brain::Brain(Brain const& copy)
 Brain&	Brain::operator=(Brain const &copy)
 {
 	std::cout << "Brain Operator= Called" << std::endl;
+	if (this == &copy)
+		return (*this);
 	for (int i = 0; i < 100; i++)
 		_ideas[i] = copy._ideas[i];
 	return (*this);

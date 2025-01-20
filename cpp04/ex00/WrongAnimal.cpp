@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: simarcha <simarcha@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:52:51 by simon             #+#    #+#             */
-/*   Updated: 2025/01/13 16:19:21 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 16:30:13 by simarcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal Desctructor Called" << std::endl;
+	std::cout << "WrongAnimal Destructor Called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const& copy)

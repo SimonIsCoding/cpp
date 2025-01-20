@@ -20,7 +20,7 @@ AAnimal::AAnimal()
 AAnimal::AAnimal(AAnimal const &copy)
 {
 	std::cout << "Copy Constructor AAnimal Called" << std::endl;
-	_type = copy._type;
+	*this = copy;
 }
 
 AAnimal& AAnimal::operator=(AAnimal const &copy)
@@ -38,5 +38,5 @@ std::string	AAnimal::getType() const
 
 AAnimal::~AAnimal()
 {
-	std::cout << "Desctructor AAnimal Called" << std::endl;
+	std::cout << "Destructor AAnimal Called" << std::endl;
 }

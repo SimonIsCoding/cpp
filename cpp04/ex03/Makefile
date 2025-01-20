@@ -6,7 +6,7 @@
 #    By: simon <simon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 15:03:57 by simon             #+#    #+#              #
-#    Updated: 2025/01/20 11:39:30 by simon            ###   ########.fr        #
+#    Updated: 2025/01/20 15:32:59 by simarcha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		= exo03
 RM			= rm -rf
 COMP		= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 INCLUDE_DIR		= ./includes/
 INCLUDE_FLAG	= -I$(INCLUDE_DIR)
