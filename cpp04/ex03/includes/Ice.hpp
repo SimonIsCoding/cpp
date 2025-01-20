@@ -5,30 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 18:44:34 by simon             #+#    #+#             */
-/*   Updated: 2025/01/16 19:08:02 by simon            ###   ########.fr       */
+/*   Created: 2022/09/28 11:33:38 by aperez-b          #+#    #+#             */
+/*   Updated: 2025/01/20 12:06:22 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
+#ifndef	ICE_HPP
 #define ICE_HPP
 
-#include <iostream>
-#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Ice : public AMateria
+class Ice: public AMateria
 {
-	private:
-	
 	public:
-		Ice();
-		~Ice();
-		Ice(Ice const& copy);
-		Ice const& operator=(Ice const& Ice);
-		
-		virtual AMateria *clone() const;
-		void use(ICharacter &target);
+		Ice(void);
+		Ice(Ice const &copy);
+		~Ice(void);
+
+		Ice const	&operator=(Ice const &copy);
+
+		virtual AMateria	*clone(void) const;
+		void				use(ICharacter &target);
 };
 
 #endif

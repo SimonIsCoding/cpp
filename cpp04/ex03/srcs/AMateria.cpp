@@ -5,40 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:58:13 by simon             #+#    #+#             */
-/*   Updated: 2025/01/16 21:31:48 by simon            ###   ########.fr       */
+/*   Created: 2022/09/28 11:03:28 by aperez-b          #+#    #+#             */
+/*   Updated: 2025/01/20 12:07:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/AMateria.hpp"
 
-AMateria::~AMateria()
+AMateria::AMateria(std::string const &type): _type(type)
 {
+	std::cout << "AMateria object created" << std::endl;
 }
 
-AMateria::AMateria(std::string const& type) : _type(type)
+AMateria::AMateria(AMateria const &copy)
 {
-}
-
-AMateria::AMateria(AMateria const &copy) : _type(copy._type)
-{
-	std::cout << "AMateria Copy constructor called" << std::endl;
 	*this = copy;
+	std::cout << "AMateria object copied" << std::endl;
 }
 
-AMateria const& AMateria::operator=(AMateria const& copy)
+AMateria::~AMateria(void)
 {
-	_type = copy._type;
+	std::cout << "AMateria object destroyed" << std::endl;
+}
+
+AMateria const	&AMateria::operator=(AMateria const &copy)
+{
+	this->_type = copy._type;
 	std::cout << "AMateria Assignment Operator Called" << std::endl;
 	return (*this);
-
-	// std::cout << "AMateria Operator= called" << std::endl;
-	// if (this != &copy)
-	// 	*this = copy;
-	// return (*this);
 }
 
-std::string const & AMateria::getType() const
+std::string const	&AMateria::getType(void) const
 {
-	return (_type);
+	return (this->_type);
 }

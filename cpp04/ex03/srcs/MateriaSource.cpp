@@ -5,37 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 20:04:35 by simon             #+#    #+#             */
-/*   Updated: 2025/01/16 21:31:54 by simon            ###   ########.fr       */
+/*   Created: 2022/09/28 11:35:22 by aperez-b          #+#    #+#             */
+/*   Updated: 2025/01/20 11:43:08 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/MateriaSource.hpp"
 
-MateriaSource::MateriaSource(): _learnInventory()
+MateriaSource::MateriaSource(void): _learnInventory()
 {
+	std::cout << "MateriaSource created with default constructor" << std::endl;
 }
 
-MateriaSource::~MateriaSource()
+MateriaSource::~MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_learnInventory[i])
-			delete _learnInventory[i];
+		if (this->_learnInventory[i])
+			delete this->_learnInventory[i];
 	}
+	std::cout << "MateriaSource destroyed" << std::endl;
 }
 
-MateriaSource::MateriaSource(MateriaSource const& copy): IMateriaSource(copy), _learnInventory()
+MateriaSource::MateriaSource(MateriaSource const &copy): IMateriaSource(copy), _learnInventory()
 {
 	for (int i = 0; i < 4; i++)
+	{
 		if (copy._learnInventory[i])
-			_learnInventory[i] = copy._learnInventory[i];
+			this->_learnInventory[i] = copy._learnInventory[i];
+	}
+	std::cout << "MateriaSource copied" << std::endl;
 }
 
-MateriaSource const&	MateriaSource::operator=(MateriaSource const& copy)
+MateriaSource const	&MateriaSource::operator=(const MateriaSource &copy)
 {
-	if (this != &copy)
-		*this = copy;
+	(void)copy;
 	return (*this);
 }
 
@@ -43,37 +47,38 @@ void	MateriaSource::learnMateria(AMateria *materia)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (materia && !_learnInventory[i])
+		if (materia && this->_learnInventory[i] == NULL)
 		{
-			_learnInventory[i] = materia;
-			std::cout << "Materia " << _learnInventory[i]->getType() << "learnt at index " << i << std::endl;
+			this->_learnInventory[i] = materia;
+			std::cout << "Materia " << this->_learnInventory[i]->getType() << " learned at index " << i << std::endl;
+			return ;
 		}
-		return ;
 	}
 	if (materia)
 		std::cout << "Cannot learn materia, inventory for MateriaSource is full!" << std::endl;
 	else
 		std::cout << "Cannot learn invalid materia" << std::endl;
-	if (!inLearnInventory(materia))
+	if (!this->inLearnInventory(materia))
 		delete materia;
 }
 
-AMateria	*MateriaSource::createMateria(std::string const& type)
+AMateria	*MateriaSource::createMateria(const std::string &type)
 {
-	std::cout << "entered in createMateria" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_learnInventory[i] && _learnInventory[i]->getType() == type)
 			return (_learnInventory[i]->clone());
 	}
-	std::cout << "Couldn't create materia, " << type << "'s invalid" << std::endl;
 	return (0);
 }
 
-int	MateriaSource::inLearnInventory(AMateria *materia)
+//function to check if the materia is in our inventory
+int MateriaSource::inLearnInventory(AMateria *materia)
 {
 	for (int i = 0; i < 4; i++)
-		if (_learnInventory[i] == materia)
+	{
+		if (this->_learnInventory[i] == materia)
 			return (1);
+	}
 	return (0);
 }
