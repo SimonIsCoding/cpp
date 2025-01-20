@@ -6,25 +6,22 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:34:37 by aperez-b          #+#    #+#             */
-/*   Updated: 2025/01/20 11:42:47 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 12:22:19 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cure.hpp"
+#include "Cure.hpp"
 
 Cure::Cure(void): AMateria("cure")
 {
-	std::cout << "Cure created with default constructor" << std::endl;
 }
 
 Cure::~Cure(void)
 {
-	std::cout << "Cure destroyed" << std::endl;
 }
 
 Cure::Cure(Cure const &copy): AMateria(copy)
 {
-	std::cout << "Cure copied" << std::endl;
 }
 
 Cure const	&Cure::operator=(const Cure &copy)

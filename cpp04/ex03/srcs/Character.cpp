@@ -6,20 +6,18 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:56 by aperez-b          #+#    #+#             */
-/*   Updated: 2025/01/20 11:42:34 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 12:22:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Character.hpp"
+#include "Character.hpp"
 
 Character::Character(void): _name("default"), _inventory()
 {
-	std::cout << "Character created with default constructor" << std::endl;
 }
 
 Character::Character(std::string const &name): _name(name), _inventory()
 {
-	std::cout << "Character created" << std::endl;
 }
 
 Character::~Character(void)
@@ -29,7 +27,6 @@ Character::~Character(void)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
-	std::cout << "Character destroyed" << std::endl;
 }
 
 Character::Character(Character const &copy): ICharacter(copy), _inventory()
@@ -61,7 +58,6 @@ void	Character::equip(AMateria *m)
 		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m->clone();
-			std::cout << _name << "'s inventory equipped with Materia " << m << std::endl;
 			return ;
 		}
 	}

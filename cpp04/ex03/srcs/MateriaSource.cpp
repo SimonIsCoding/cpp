@@ -6,15 +6,14 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:22 by aperez-b          #+#    #+#             */
-/*   Updated: 2025/01/20 11:43:08 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 12:24:39 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/MateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(void): _learnInventory()
 {
-	std::cout << "MateriaSource created with default constructor" << std::endl;
 }
 
 MateriaSource::~MateriaSource(void)
@@ -24,7 +23,6 @@ MateriaSource::~MateriaSource(void)
 		if (this->_learnInventory[i])
 			delete this->_learnInventory[i];
 	}
-	std::cout << "MateriaSource destroyed" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &copy): IMateriaSource(copy), _learnInventory()
@@ -34,12 +32,11 @@ MateriaSource::MateriaSource(MateriaSource const &copy): IMateriaSource(copy), _
 		if (copy._learnInventory[i])
 			this->_learnInventory[i] = copy._learnInventory[i];
 	}
-	std::cout << "MateriaSource copied" << std::endl;
 }
 
 MateriaSource const	&MateriaSource::operator=(const MateriaSource &copy)
 {
-	(void)copy;
+	*this = copy;
 	return (*this);
 }
 
@@ -50,14 +47,13 @@ void	MateriaSource::learnMateria(AMateria *materia)
 		if (materia && this->_learnInventory[i] == NULL)
 		{
 			this->_learnInventory[i] = materia;
-			std::cout << "Materia " << this->_learnInventory[i]->getType() << " learned at index " << i << std::endl;
 			return ;
 		}
 	}
 	if (materia)
-		std::cout << "Cannot learn materia, inventory for MateriaSource is full!" << std::endl;
+		std::cout << "Inventory for MateriaSource is full." << std::endl;
 	else
-		std::cout << "Cannot learn invalid materia" << std::endl;
+		std::cout << "Invalid materia" << std::endl;
 	if (!this->inLearnInventory(materia))
 		delete materia;
 }

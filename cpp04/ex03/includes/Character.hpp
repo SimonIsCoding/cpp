@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:35:44 by aperez-b          #+#    #+#             */
-/*   Updated: 2025/01/20 12:03:19 by simon            ###   ########.fr       */
+/*   Updated: 2025/01/20 12:21:34 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,16 @@ class Character: public ICharacter
 		std::string	_name;
 		AMateria	*_inventory[4];
 	public:
-		/* Constructors & Destructors */
 		Character(void);
 		Character(std::string const &name);
 		Character(Character const &copy);
 		~Character(void);
 
-		/* Basic Operators */
 		Character const	&operator=(Character const &copy);
 
-		/* Getters & Setters */
 		std::string const	&getName(void) const;
 		void				setName(std::string const &name);
 
-		/* Main Member Functions */
 		virtual void	equip(AMateria *m);
 		virtual void	unequip(int idx);
 		virtual void	use(int idx, ICharacter &target);
